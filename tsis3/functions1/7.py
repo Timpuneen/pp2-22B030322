@@ -4,4 +4,4 @@ def has_33(nums):
             return True
     return False
 
-print(has_33([1,3,1]))
+print(has_33([3,1,3,1]))
