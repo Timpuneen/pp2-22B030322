@@ -2,9 +2,9 @@ import psycopg2
 
 connection = psycopg2.connect(
     host="localhost",
-    database="saya",
+    database="my_db",
     user="postgres",
-    password="sayka030704"
+    password="1234"
 ) 
 query_clear="Delete from PhoneBook;" #очистить таблицу
 query_create_user = "INSERT INTO PhoneBook (user_name, phone) VALUES (%s, %s) ;" #создаем пользователей
@@ -16,10 +16,9 @@ query_delete_by_name="Delete from PhoneBook where user_name='SAYA';" #удаля
 cursor = connection.cursor()
 
 users = [
-    ('SAYA','82342349'),
-    ('Jask','124235235'),
-    ('asfa','124232345235'),
-    ('QWERTY','1414'),
+    ('Timpuheen','82342349'),
+    ('Vit','124235235'),
+    ('Mart','124232345235'),
 ]
 cursor.execute(query_clear)
 cursor.executemany(query_create_user, users) #метод позволяет выполнить одно выражение SQL для последовательности параметров
@@ -32,8 +31,6 @@ print(cursor.fetchall()) #озвращает данные, хранящиеся 
 cursor.execute(query_delete_by_name)
 cursor.execute(query_filter_by_name)
 print(cursor.fetchall())
-
-
 
 
 connection.commit() #Записать транзакцию
